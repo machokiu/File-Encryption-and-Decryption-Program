@@ -13,37 +13,37 @@ Encryption: The user is prompted to enter the file path, password, encryption al
 Decryption: The user is prompted to enter the encrypted file path and password. The file is decrypted using the information from the metadata file.
 
 # Functions
-# generate_master_key(password, salt, hashing_algorithm, iteration)
+# generate_master_key
 Purpose: Generates a master key from a password using PBKDF2 with the specified hashing algorithm and iteration count.
 Parameters: password (string), salt (bytes), hashing_algorithm (string), iteration (int)
 Returns: Master key (bytes)
 
-# generate_derive_key(master_key, hashing_algorithm)
+# generate_derive_key
 Purpose: Derives an encryption key and an HMAC key from the master key using the specified hashing algorithm.
 Parameters: master_key (bytes), hashing_algorithm (string)
 Returns: Tuple containing encryption key (bytes) and HMAC key (bytes)
 
-# encrypt_data(data, encryption_key, IV, encryption_algorithm)
+# encrypt_data
 Purpose: Encrypts data using the specified encryption key, IV, and encryption algorithm.
 Parameters: data (bytes), encryption_key (bytes), IV (bytes), encryption_algorithm (string)
 Returns: Encrypted data (bytes)
 
-# decrypt_data(encrypted_data, encryption_key, IV, encryption_algorithm)
+# decrypt_data
 Purpose: Decrypts data using the specified encryption key, IV, and encryption algorithm.
 Parameters: encrypted_data (bytes), encryption_key (bytes), IV (bytes), encryption_algorithm (string)
 Returns: Decrypted data (bytes)
 
-# create_HMAC(encrypted_data, HMAC_key, IV, hashing_algorithm)
+# create_HMAC
 Purpose: Creates an HMAC for the encrypted data and IV using the specified HMAC key and hashing algorithm.
 Parameters: encrypted_data (bytes), HMAC_key (bytes), IV (bytes), hashing_algorithm (string)
 Returns: HMAC value (bytes)
 
-# encrypt_file(input_file, password, encryption_algorithm, hashing_algorithm)
+# encrypt_file
 Purpose: Encrypts a file and stores the metadata, including encryption details and HMAC, in a JSON file.
 Parameters: input_file (string), password (string), encryption_algorithm (string), hashing_algorithm (string)
 Returns: Path to the encrypted file (string)
 
-# decrypt_file(input_file, password)
+# decrypt_file
 Purpose: Decrypt a file using the metadata stored in the JSON file and the provided password.
 Parameters: input_file (string), password (string)
 Returns: Path to the decrypted file (string)
